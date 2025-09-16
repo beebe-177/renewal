@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>2026 Renewal Review — Quote List</title>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --brand:#07b;          /* ERA blue */
+      --brand-dark:#005a88;  /* darker hover */
+      --ink:#4f5b64;         /* body text */
+      --bg:#f7f9fb;          /* page bg */
+      --card:#ffffff;        /* card bg */
+      --accent:#e6f2fb;      /* subtle tint */
+      --ok:#0b8f4d;          /* success */
+      --warn:#b65e00;        /* warn */
+      --shadow:0 8px 20px rgba(0,0,0,.06);
+      --radius:18px;
+    }
+    html,body{height:100%}
+    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    h1{font-weight:700;color:var(--brand);margin:8px 0 4px}
+    .sub{color:#6a7781;margin:0 0 20px}
+    .toolbar{position:sticky;top:0;background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));backdrop-filter:saturate(180%) blur(6px);z-index:10;border-bottom:1px solid #e9eef3}
+    .toolbar-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;align-items:center;padding:10px 24px}
+    .toolbar .grow{flex:1}
+    input[type="search"], select{border:1px solid #cdd7e1;border-radius:12px;padding:10px 12px;font-size:14px;min-width:220px;background:#fff}
+    .btn{--bg:var(--brand);--fg:#fff;display:inline-flex;gap:8px;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;border:0;background:var(--bg);color:var(--fg);font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+    .btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+    .btn.secondary{--bg:#eaf3fa;--fg:var(--brand);box-shadow:none;border:1px solid #cfe6f7}
+    .btn:hover{background:var(--brand-dark)}
+    .btn.secondary:hover{background:#dcecf9}
+
+    .how{display:grid;grid-template-columns:1.2fr 2fr;gap:22px;align-items:start;margin:8px 0 18px}
+    .how .panel{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px}
+    .how h3{margin:2px 0 8px;font-size:16px}
+    .how ul{margin:8px 0 0 18px;padding:0;font-size:14px}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 6;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;min-height:190px}
+    @media (min-width:980px){.card{grid-column:span 4}}
+    .card .pad{padding:16px 16px 12px}
+    .quote-id{display:flex;align-items:center;gap:10px}
+    .chip{background:var(--accent);color:var(--brand);font-weight:700;border-radius:999px;padding:6px 10px;font-size:12px}
+    .card h2{margin:8px 0 2px;font-size:16px}
+    .meta{display:flex;flex-wrap:wrap;gap:10px 14px;font-size:13px;color:#6b7781;margin-top:6px}
+    .meta .k{color:#8e9aa5}
+    .price{margin-top:10px;font-weight:700}
+    .actions{margin-top:auto;display:flex;gap:10px;padding:12px 16px;border-top:1px solid #eef3f8;background:linear-gradient(180deg,#fff,#f9fbfe)}
+
+    .select-box{position:absolute;top:10px;left:12px}
+    .select-box input{width:18px;height:18px}
+
+    /* Approve drawer */
+    .drawer{display:none;position:fixed;inset:0;background:rgba(19,29,38,.38);z-index:50;align-items:center;justify-content:center;padding:20px}
+    .drawer[open]{display:flex}
+    .sheet{max-width:620px;width:100%;background:#fff;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+    .sheet header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #eef3f8}
+    .sheet h3{margin:0;font-size:18px}
+    .sheet .body{padding:16px 18px;display:grid;gap:14px}
+    .row{display:grid;gap:8px}
+    .inline{display:flex;gap:12px;align-items:center}
+    .hint{font-size:12px;color:#6a7781}
+    .radio{display:grid;gap:8px}
+    .radio label{display:flex;gap:10px;align-items:flex-start;background:#f8fbff;border:1px solid #e6eef6;border-radius:12px;padding:10px}
+    .radio input{margin-top:2px}
+    .field{display:grid;gap:6px;margin-left:28px}
+    .field input, .field textarea{border:1px solid #cfd9e2;border-radius:10px;padding:10px 12px;font-size:14px}
+    .sheet footer{padding:12px 18px;border-top:1px solid #eef3f8;display:flex;gap:12px;justify-content:flex-end}
+
+    .sticky-footer{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(247,249,251,0),#f7f9fb 40%, #f7f9fb);padding:14px 0 4px;margin-top:10px}
+    .sticky-footer .bar{max-width:1200px;margin:0 auto;display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .count{font-weight:700}
+
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+<div aria-label="Controls" class="toolbar" role="region">
+<div class="toolbar-inner">
+<div class="grow">
+<strong>2026 Renewal Review</strong> — Select and approve your study quotes below.
+      </div>
+</div>
+</div>
+<div class="container">
+<h1>Review and confirm your 2026 studies</h1>
+<p class="sub">Change dates up to two weeks before open. No invoice until studies open and items ship. Need help? Live Chat 6 am–5 pm MT • 800‑372‑0122 • era_info@waters.com.</p>
+<section aria-label="How this works" class="how">
+<div class="panel">
+<h3>How this works</h3>
+<ul>
+<li>Choose <strong>Approve now</strong> to view approval options.</li>
+<li>Want to change dates or items? Click <strong>Approve now</strong>, then pick <em>I need changes</em> in the approval window.</li>
+<li>Approving multiple quotes? Check them and use <strong>Approve selected</strong> below.</li>
+</ul>
+</div>
+<div class="panel">
+<h3>Your quotes</h3>
+<div class="meta"><span class="k">Customer #:</span> A000002  •  <span class="k">Email:</span> bob@abc.com  •  <span class="k">Phone:</span> 800‑867‑5309</div>
+</div>
+</section>
+<section aria-label="Quote cards" class="grid" id="grid">
+<!-- CARD TEMPLATE -->
+</section>
+<div aria-live="polite" class="sticky-footer">
+<div class="bar container">
+<div class="count"><span id="selCount">0</span> selected</div>
+<div style="display:flex; gap:10px; align-items:center">
+<button class="btn secondary" disabled="" id="clearSel">Clear</button>
+<button class="btn" disabled="" id="approveSel">Approve selected</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Optional: HubSpot form mount point for 1-form strategy -->
+<div id="hsInvisible" style="display:none"></div>
+
+<!-- Approve Drawer -->
+<dialog aria-label="Approve quote" class="drawer" id="drawer">
+<div class="sheet" role="document">
+<header>
+<h3 id="drawerTitle">Approve quote</h3>
+<button aria-label="Close" class="btn secondary" id="closeDrawer">Close</button>
+</header>
+<div class="body">
+<div class="row">
+<div class="hint">Confirm the quote as-is or request changes. Payment is finalized securely; you can use a PO or the card on file.</div>
+</div>
+<div class="row">
+<div class="field">
+<label for="firstName">First name</label>
+<input id="firstName" name="firstname" placeholder="First name"/>
+</div>
+<div class="field">
+<label for="lastName">Last name</label>
+<input id="lastName" name="lastname" placeholder="Last name"/>
+</div>
+<div class="field">
+<label for="email">Email</label>
+<input id="email" name="email" placeholder="name@example.com" type="email"/>
+</div>
+<div class="field">
+<label for="phone">Phone</label>
+<input id="phone" name="phone" placeholder="###-###-####" type="tel"/>
+</div>
+</div>
+
+<div class="radio">
+<label>
+<input checked="" name="method" type="radio" value="po"/>
+<div>
+<div><strong>Confirm with Purchase Order</strong></div>
+<div class="hint">We’ll match your PO before shipping. You can enter it now or select TBD.</div>
+<div class="field" id="poField">
+<label for="poNumber">PO number</label>
+<input id="poNumber" placeholder="Enter PO or type TBD">
+</input></div>
+</div>
+</label>
+<label>
+<input name="method" type="radio" value="card"/>
+<div>
+<div><strong>Confirm with card on file</strong></div>
+<div class="hint">We only use the last 4 to match your card; full details are collected securely later.</div>
+<div class="field" id="cardField" style="display:none">
+<label for="last4">Last 4 digits</label>
+<input id="last4" inputmode="numeric" pattern="[0-9]{4}" placeholder="1234">
+<label class="inline" style="font-size:12px"><input id="dontKnow" type="checkbox"/> I’m not sure — please contact me.</label>
+</input></div>
+</div>
+</label>
+<label>
+<input name="method" type="radio" value="changes"/>
+<div>
+<div><strong>I need changes</strong></div>
+<div class="hint">Describe what you need and our team will adjust the quote before confirming.</div>
+<div class="field" id="changeField" style="">
+<label for="message">Message for us</label>
+<textarea id="message" placeholder="Share any notes or instructions (e.g., date changes, PO notes, billing/shipping updates)." rows="3"></textarea>
+</div>
+</div>
+</label>
+
+<label>
+<input name="method" type="radio" value="sales"/>
+<div>
+<div><strong>I would like to have the sales team follow up with me</strong></div>
+<div class="hint">We’ll have your account representative reach out.</div>
+</div>
+</label>
+</div>
+</div>
+
+<input id="quoteId" name="quoteId" type="hidden" value=""/>
+<input id="quoteList" name="quoteList" type="hidden" value=""/>
+<input id="approvalMethod" name="approvalMethod" type="hidden" value="po"/>
+<footer>
+<button class="btn secondary" id="cancel">Cancel</button>
+<button class="btn" id="submit">Submit approval</button>
+</footer>
+</div>
+</dialog>
+<script>
+    // --- Sample data (could be server-rendered) ---
+    const quotes=[
+      {id:'89381893',name:'WS 349 Aug 2026 Renewal A000002',study:'WS 349',open:'08/04/2026',close:'09/18/2026',qty:1,total:516.42,freight:'FedEx 2Day',terms:'NET 30'},
+      {id:'88342012',name:'WS 275 May 2026 Renewal A000002',study:'WS 275',open:'05/06/2026',close:'05/27/2026',qty:2,total:742.10,freight:'UPS Ground',terms:'NET 30'},
+      {id:'90311455',name:'WS 380 Oct 2026 Renewal A000002',study:'WS 380',open:'10/02/2026',close:'10/23/2026',qty:1,total:318.00,freight:'FedEx Saver',terms:'NET 30'},
+      {id:'89200177',name:'WS 349 Feb 2026 Renewal A000002',study:'WS 349',open:'02/10/2026',close:'02/24/2026',qty:3,total:972.50,freight:'FedEx 2Day',terms:'NET 30'},
+      {id:'87440111',name:'WS 160 Mar 2026 Renewal A000002',study:'WS 160',open:'03/14/2026',close:'04/01/2026',qty:1,total:199.00,freight:'UPS Ground',terms:'NET 30'},
+      {id:'88990031',name:'WS 349 Nov 2026 Renewal A000002',study:'WS 349',open:'11/03/2026',close:'11/24/2026',qty:1,total:516.42,freight:'FedEx 2Day',terms:'NET 30'},
+      {id:'90115678',name:'WS 173 Jul 2026 Renewal A000002',study:'WS 173',open:'07/12/2026',close:'08/02/2026',qty:1,total:284.00,freight:'FedEx Saver',terms:'NET 30'},
+      {id:'90115679',name:'WS 173 Dec 2026 Renewal A000002',study:'WS 173',open:'12/08/2026',close:'12/29/2026',qty:1,total:284.00,freight:'FedEx Saver',terms:'NET 30'},
+      {id:'87122210',name:'WS 210 Jan 2026 Renewal A000002',study:'WS 210',open:'01/08/2026',close:'01/29/2026',qty:2,total:439.98,freight:'UPS Ground',terms:'NET 30'},
+      {id:'86119901',name:'WS 349 Apr 2026 Renewal A000002',study:'WS 349',open:'04/05/2026',close:'04/26/2026',qty:1,total:516.42,freight:'FedEx 2Day',terms:'NET 30'},
+      {id:'89034022',name:'WS 275 Jun 2026 Renewal A000002',study:'WS 275',open:'06/04/2026',close:'06/25/2026',qty:1,total:371.05,freight:'UPS Ground',terms:'NET 30'},
+      {id:'87550021',name:'WS 111 Sep 2026 Renewal A000002',study:'WS 111',open:'09/02/2026',close:'09/23/2026',qty:1,total:156.00,freight:'UPS Ground',terms:'NET 30'}
+    ];
+
+    const grid=document.getElementById('grid');
+    const sel=new Set();
+
+    function cardTemplate(q){
+      return `<article class="card" data-id="${q.id}">
+        <div class="select-box"><input type="checkbox" aria-label="Select quote ${q.id}" /></div>
+        <div class="pad">
+          <div class="quote-id">
+            <span class="chip">Quote #</span> <a href="#" class="qid" data-id="${q.id}">${q.id}</a>
+          </div>
+          <h2>${q.name}</h2>
+          <div class="meta">
+            <div><span class="k">Study:</span> ${q.study}</div>
+            <div><span class="k">Open:</span> ${q.open}</div>
+            <div><span class="k">Close:</span> ${q.close}</div>
+            <div><span class="k">Qty:</span> ${q.qty}</div>
+          </div>
+          <div class="meta">
+            <div><span class="k">Freight:</span> ${q.freight}</div>
+            <div><span class="k">Terms:</span> ${q.terms}</div>
+          </div>
+          <div class="price">Total: $${q.total.toFixed(2)}</div>
+        </div>
+        <div class="actions">
+          <button class="btn approve" data-id="${q.id}">Approve now</button>
+          <a class="btn secondary" href="#">Review details</a>
+        </div>
+      </article>`
+    }
+
+    function render(){
+      grid.innerHTML=quotes.map(cardTemplate).join('');
+      grid.querySelectorAll('.select-box input').forEach(cb=>{
+        cb.addEventListener('change',e=>{
+          const id=e.target.closest('.card').dataset.id;
+          if(e.target.checked){sel.add(id)} else {sel.delete(id)}
+          updateSelBar();
+        })
+      })
+      grid.querySelectorAll('.approve').forEach(btn=>btn.addEventListener('click',openDrawer));
+    }
+
+    function updateSelBar(){
+      document.getElementById('selCount').textContent=sel.size;
+      document.getElementById('approveSel').disabled=sel.size===0;
+      document.getElementById('clearSel').disabled=sel.size===0;
+    }
+
+    // Drawer logic
+    const drawer=document.getElementById('drawer');
+    const title=document.getElementById('drawerTitle');
+    let activeId=null;
+
+    function openDrawer(e){
+      activeId=e.currentTarget.dataset.id;
+      title.textContent=`Approve quote #${activeId}`;
+      drawer.setAttribute('open','');
+      document.getElementById('quoteId').value = activeId;
+      document.getElementById('quoteList').value = '';
+    }
+    document.getElementById('closeDrawer').onclick=()=>drawer.removeAttribute('open');
+    document.getElementById('cancel').onclick=()=>drawer.removeAttribute('open');
+
+    // Method toggles
+    const radios=()=>Array.from(document.querySelectorAll('input[name="method"]'));
+    const poField=document.getElementById('poField');
+    const cardField=document.getElementById('cardField');
+    const changeField=document.getElementById('changeField');
+    function refreshFields(){
+      const v=radios().find(r=>r.checked).value;
+      poField.style.display = v==='po'? 'grid':'none';
+      cardField.style.display = v==='card'? 'grid':'none';
+      changeField.style.display = 'grid'; // always show message field
+      document.getElementById('approvalMethod').value = v;
+    }
+    document.addEventListener('change',e=>{
+      if(e.target.name==='method'){refreshFields()}
+    });
+    refreshFields();
+
+    document.getElementById('submit').onclick=()=>{
+      const v=radios().find(r=>r.checked).value;
+      let summary='';
+      const fn=(document.getElementById('firstName').value||'').trim();
+      const ln=(document.getElementById('lastName').value||'').trim();
+      const em=(document.getElementById('email').value||'').trim();
+      const ph=(document.getElementById('phone').value||'').trim();
+      if(v==='po'){
+        const po=(document.getElementById('poNumber').value||'TBD').trim();
+        summary=`Approved with PO: ${po}`;
+      }else if(v==='card'){
+        const last4=document.getElementById('last4').value.trim();
+        const unsure=document.getElementById('dontKnow').checked;
+        summary=unsure? 'Approved with card on file (contact me to confirm last 4)'
+                      : `Approved with card on file (•••• ${last4||'????'})`;
+      }else if(v==='sales'){
+        const msg=(document.getElementById('message').value||'[no message]').trim();
+        summary=`Sales follow-up requested: ${msg}`;
+      }else{
+        const msg=(document.getElementById('message').value||'[no message]').trim();
+        summary=`Request submitted: ${msg}`;
+      }
+      const qid = document.getElementById('quoteId').value;
+      const qlist = document.getElementById('quoteList').value;
+      const idText = qid ? `Quote #${qid}` : `Quotes: ${qlist}`;
+      alert(`${idText}\n${summary}\nName: ${fn} ${ln}\nEmail: ${em}\nPhone: ${ph}\n\n(Prototype submission — replace with HubSpot form submission.)`);
+      drawer.removeAttribute('open');
+    }
+
+    // Bulk actions
+    document.getElementById('approveSel').onclick=()=>{
+      const list = Array.from(sel);
+      activeId = list.join(', ');
+      title.textContent=`Approve ${sel.size} selected quotes`;
+      drawer.setAttribute('open','');
+      document.getElementById('quoteId').value = '';
+      document.getElementById('quoteList').value = list.join(',');
+    };
+    document.getElementById('clearSel').onclick=()=>{ sel.clear(); render(); updateSelBar(); };
+
+    render();
+  </script>
+</body>
+</html>
